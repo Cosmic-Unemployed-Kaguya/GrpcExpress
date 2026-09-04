@@ -39,8 +39,8 @@ jobs:
 
       - name: 패키지 설치
         # run: npm ci --verbose
-        run: npm install
-
+        run: npm ci --loglevel silly
+        
       - name: 빌드
         run: npm run build
 
