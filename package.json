@@ -1,0 +1,41 @@
+{
+  "name": "@cosmic-unemployed-kaguya/grpc-express",
+  "version": "1.0.1",
+  "private": false,
+
+  "description": "Grpc framework for express ",
+  "license": "ISC",
+  "author": "Lujol",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+
+  "files": [
+    "dist",
+    "src"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cosmic-Unemployed-Kaguya/gachi.machugi.io.git"
+  },
+  "publishConfig": {
+    "@cosmic-unemployed-kaguya:registry": "https://npm.pkg.github.com"
+  },
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.3",
+    "http-status": "^2.1.0",
+    "reflect-metadata": "^0.2.2",
+    "typedi": "^0.10.0",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
+
+}

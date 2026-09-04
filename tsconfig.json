@@ -1,0 +1,30 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // 패키지 배포 용 옵션
+    "declaration": true, // 타입 선언 파일 (.d.ts) 생성
+    "sourceMap": true,   // Js <> Ts 연결 맵 (.js.map) 생성 
+    "declarationMap": true,   // 타입 <> 원본 (.d.ts.map) 생성
+
+    "module": "nodenext",
+    "target": "esnext",
+
+    "experimentalDecorators": true,      // 데코레이터(@) 문법 사용 허용
+    "emitDecoratorMetadata": true,        // TypeDI가 타입을 추론할 수 있게 메타데이터 방출 허용
+    "strictPropertyInitialization": false,  // class의 초기화 검사를 엄격하게 할것인가
+    "useDefineForClassFields": false,
+    
+    "types": ["node"],
+
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
