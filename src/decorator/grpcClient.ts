@@ -2,6 +2,7 @@ import { Client, credentials } from "@grpc/grpc-js";
 import Container, { Service } from "typedi";
 
 
+
 /**
  * GrpcCient 구현 클래스 데코레이터
  * - 해당 클래스를 컨테이너에 등록
