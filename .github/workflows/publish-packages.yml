@@ -24,26 +24,26 @@ jobs:
   publishing:
     name: 패키지 배포
     runs-on: ubuntu-latest
-  
-  steps:
+    
+    steps:
 
-    - name: Check out Repository
-      uses: actions/checkout@v3
+      - name: Check out Repository
+        uses: actions/checkout@v3
 
-    - name: setup node.js 
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        registry-url: 'https://npm.pkg.github.com'
-        scope: '@Cosmic-Unemployed-Kaguya'
+      - name: setup node.js 
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@Cosmic-Unemployed-Kaguya'
 
-    - name: 패키지 설치
-      run: npm ci
+      - name: 패키지 설치
+        run: npm ci
 
-    - name: 빌드
-      run: npm run build
+      - name: 빌드
+        run: npm run build
 
-    - name: 배포
-      run: npm publish  
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: 배포
+        run: npm publish  
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
