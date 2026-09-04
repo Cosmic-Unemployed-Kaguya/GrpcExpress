@@ -38,7 +38,7 @@ jobs:
           scope: '@Cosmic-Unemployed-Kaguya'
 
       - name: 패키지 설치
-        run: npm ci
+        run: npm ci --verbose
 
       - name: 빌드
         run: npm run build
