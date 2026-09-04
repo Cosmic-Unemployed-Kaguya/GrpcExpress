@@ -1,0 +1,49 @@
+name: GrpcExpress publishing package
+
+concurrency: # 동시 실행 제어
+  group: grpcExpress-publishing # 그룹 이름을 지정
+  cancel-in-progress: false # 진행 중인 배포가 있다면 취소하지 않고 대기
+
+
+on:
+  push:
+    branches:
+      - main
+
+    paths-ignore:
+      - '.github/**' # action 제외
+      - '.gitignore' # ignore 제외
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publishing:
+    name: 패키지 배포
+    runs-on: ubuntu-latest
+  
+  steps:
+
+    - name: Check out Repository
+      uses: actions/checkout@v3
+
+    - name: setup node.js 
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@Cosmic-Unemployed-Kaguya'
+
+    - name: 패키지 설치
+      run: npm ci
+
+    - name: 빌드
+      run: npm run build
+
+    - name: 배포
+      run: npm publish  
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
